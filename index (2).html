@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ООО «КСК ЭКСПОСТРОЙ» — Независимая судебная и досудебная строительно-техническая экспертиза в Абакане</title>
+  <meta name="description" content="Независимая судебная и досудебная строительно-техническая экспертиза в Абакане и Республике Хакасия. Заключения для судов по ФЗ-73, сметы в ПК ГРАНД-Смета (ФСНБ-2022), тепловизионное обследование, оценка ущерба.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Manrope & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Manrope', 'sans-serif'],
+          },
+          colors: {
+            slate: {
+              850: '#152036',
+              900: '#0F172A',
+              950: '#090E1A',
+            },
+            amber: {
+              500: '#F59E0B',
+              600: '#D97706',
+              700: '#B45309',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Инженерная сетка для Hero-секции */
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+
+    /* Кастомный ползунок для калькулятора */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      background: #E2E8F0;
+      height: 0.5rem;
+      border-radius: 9999px;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      margin-top: -6px;
+      background-color: #D97706;
+      height: 1.25rem;
+      width: 1.25rem;
+      border-radius: 9999px;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.12);
+    }
+
+    /* Плавное открытие FAQ */
+    .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease-out;
+    }
+    .faq-item.active .faq-content {
+      grid-template-rows: 1fr;
+    }
+    .faq-inner {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-amber-600 selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- ФИКСИРОВАННАЯ ШАПКА (HEADER)                                          -->
+  <!-- ===================================================================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Логотип -->
+        <a href="#" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-600/20 group-hover:scale-105 transition-transform">
+            <!-- Инженерный SVG-символ -->
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18"/>
+              <path d="M5 21V7l8-4v18"/>
+              <path d="M19 21V11l-6-4"/>
+              <path d="M9 9v.01"/>
+              <path d="M9 12v.01"/>
+              <path d="M9 15v.01"/>
+              <path d="M9 18v.01"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-extrabold text-white text-base sm:text-lg tracking-tight leading-none">
+              КСК ЭКСПОСТРОЙ
+            </span>
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider mt-1">
+              Судебная экспертиза • Абакан
+            </span>
+          </div>
+        </a>
+
+        <!-- Десктопная навигация -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <a href="#services" class="hover:text-amber-500 transition-colors">Услуги</a>
+          <a href="#calculator" class="hover:text-amber-500 transition-colors">Калькулятор</a>
+          <a href="#guarantees" class="hover:text-amber-500 transition-colors">Гарантии и приборы</a>
+          <a href="#stages" class="hover:text-amber-500 transition-colors">Этапы работы</a>
+          <a href="#b2b" class="hover:text-amber-500 transition-colors">Юристам и судам</a>
+          <a href="#contacts" class="hover:text-amber-500 transition-colors">Контакты</a>
+        </nav>
+
+        <!-- Контакты и CTA кнопка в шапке -->
+        <div class="hidden sm:flex items-center gap-5">
+          <div class="flex flex-col items-end text-right">
+            <a href="tel:+79832729111" class="text-sm font-bold text-white hover:text-amber-400 transition-colors leading-tight">
+              +7 (983) 272-91-11
+            </a>
+            <a href="tel:+79235560070" class="text-xs font-medium text-slate-400 hover:text-amber-400 transition-colors mt-0.5">
+              +7 (923) 556-00-70
+            </a>
+          </div>
+          <button onclick="openModal('callback', 'Заказ обратного звонка', 'Оставьте ваш номер — профильный строительный эксперт перезвонит в течение 15 минут.')" 
+                  class="px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold shadow-md shadow-amber-600/20 transition-all active:scale-95">
+            Заказать звонок
+          </button>
+        </div>
+
+        <!-- Мобильное меню: кнопка звонка + бургер -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <a href="tel:+79832729111" aria-label="Позвонить" class="sm:hidden p-2.5 rounded-xl bg-amber-600 text-white hover:bg-amber-500 transition-colors">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </a>
+          <button id="mobile-menu-btn" aria-label="Открыть меню" class="p-2.5 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors">
+            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Выпадающее мобильное меню -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-t border-slate-800 px-4 pt-3 pb-6 space-y-3 shadow-2xl">
+      <nav class="flex flex-col space-y-2 text-base font-medium text-slate-200">
+        <a href="#services" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition-colors">Основные направления</a>
+        <a href="#calculator" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition-colors">Калькулятор стоимости</a>
+        <a href="#guarantees" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition-colors">Гарантии и СРО НОПРИЗ</a>
+        <a href="#stages" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition-colors">Этапы работы</a>
+        <a href="#b2b" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition-colors">Для юристов и адвокатов</a>
+        <a href="#faq" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition-colors">Частые вопросы</a>
+        <a href="#contacts" class="mobile-link px-3 py-2.5 rounded-xl hover:bg-slate-800 hover:text-amber-400 transition-colors">Контакты и адрес</a>
+      </nav>
+      <div class="pt-3 border-t border-slate-800 flex flex-col gap-3">
+        <div class="flex flex-col gap-1 px-3">
+          <a href="tel:+79832729111" class="text-base font-bold text-white">+7 (983) 272-91-11</a>
+          <a href="tel:+79235560070" class="text-sm font-medium text-slate-400">+7 (923) 556-00-70</a>
+        </div>
+        <button onclick="openModal('callback', 'Бесплатная консультация', 'Оставьте контакты для разбора вашей ситуации с судебным экспертом.')" 
+                class="w-full py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-center shadow-lg">
+          Заказать консультацию
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- ПЕРВЫЙ ЭКРАН (HERO SECTION)                                           -->
+  <!-- ===================================================================== -->
+  <section class="relative pt-28 pb-16 sm:pt-36 sm:pb-24 bg-[#0F172A] blueprint-grid overflow-hidden">
+    <!-- Декоративные инженерные подсветки -->
+    <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[450px] h-[450px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Левая колонка: Оффер и CTA -->
+        <div class="lg:col-span-7 space-y-7">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-amber-400 text-xs sm:text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            Республика Хакасия • г. Абакан и выезд по регионам
+          </div>
+
+          <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-white leading-[1.16] tracking-tight">
+            Независимая судебная и досудебная <span class="text-amber-500">строительно-техническая экспертиза</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Готовим юридически безупречные экспертные заключения для арбитражных судов, судов общей юрисдикции, застройщиков, бизнеса и частных лиц. Выполняем точный сметный расчет восстановительного ремонта в лицензионном <strong class="text-white font-semibold">ПК «ГРАНД-Смета» (база ФСНБ-2022)</strong>.
+          </p>
+
+          <!-- Кнопки действия -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-1">
+            <button onclick="openModal('consult', 'Получить консультацию эксперта', 'Опишите вашу задачу — мы оценим судебную перспективу, сроки и перечень необходимых документов.')" 
+                    class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-base shadow-xl shadow-amber-600/20 transition-all hover:-translate-y-0.5">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+              Получить консультацию эксперта
+            </button>
+            <a href="#calculator" 
+               class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-slate-800/90 hover:bg-slate-800 text-white border border-slate-700 font-semibold text-base transition-all hover:-translate-y-0.5">
+              <i data-lucide="calculator" class="w-5 h-5 text-amber-500"></i>
+              Рассчитать стоимость
+            </a>
+          </div>
+
+          <!-- Ключевые показатели доверия -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-800">
+            <div class="bg-slate-800/50 border border-slate-800 rounded-xl p-4">
+              <div class="font-display font-extrabold text-2xl sm:text-3xl text-amber-500">10+ лет</div>
+              <div class="text-xs sm:text-sm text-slate-300 mt-1 font-medium">практического опыта судебных и инженерных экспертиз</div>
+            </div>
+            <div class="bg-slate-800/50 border border-slate-800 rounded-xl p-4">
+              <div class="font-display font-extrabold text-lg sm:text-xl text-white leading-tight">СРО НОПРИЗ</div>
+              <div class="text-xs sm:text-sm text-slate-300 mt-1 font-medium">и членство в Палате судебных экспертов РФ</div>
+            </div>
+            <div class="bg-slate-800/50 border border-slate-800 rounded-xl p-4">
+              <div class="font-display font-extrabold text-2xl sm:text-3xl text-amber-500">100%</div>
+              <div class="text-xs sm:text-sm text-slate-300 mt-1 font-medium">соответствие ФЗ-73, актуальным СП, ГОСТ и ФСНБ-2022</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: Инженерно-юридическая карточка-досье -->
+        <div class="lg:col-span-5">
+          <div class="bg-slate-800/80 backdrop-blur-md border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+            <div class="flex items-center justify-between pb-5 border-b border-slate-700">
+              <div>
+                <span class="text-xs font-semibold uppercase tracking-wider text-amber-500">Стандарт заключения</span>
+                <h2 class="font-display font-bold text-white text-lg mt-0.5">ООО «КСК ЭКСПОСТРОЙ»</h2>
+              </div>
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500">
+                <i data-lucide="file-check-2" class="w-6 h-6"></i>
+              </div>
+            </div>
+
+            <ul class="space-y-4 my-6 text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                </div>
+                <span><strong class="text-white">Процессуальная безупречность:</strong> подписка эксперта об уголовной ответственности по ст. 307 УК РФ и соблюдение ФЗ № 73-ФЗ.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                </div>
+                <span><strong class="text-white">Инструментальный контроль:</strong> поверенные тепловизоры, склерометры, лазерные нивелиры и влагомеры с действующими свидетельствами.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                </div>
+                <span><strong class="text-white">Сметы в ПК «ГРАНД-Смета»:</strong> расчет ресурсно-индексным методом (РИМ) по актуальной базе ФСНБ-2022 с привязкой к региону.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                </div>
+                <span><strong class="text-white">Защита в судебных заседаниях:</strong> очные и ВКС-выступления эксперта для пояснения выводов перед судом.</span>
+              </li>
+            </ul>
+
+            <div class="bg-slate-900/90 rounded-xl p-4 border border-slate-700/70 flex items-center justify-between gap-4">
+              <div>
+                <div class="text-xs text-slate-400">Нужно письмо в суд о назначении экспертизы?</div>
+                <div class="text-sm font-semibold text-white mt-0.5">Подготовим бесплатно за 2 часа</div>
+              </div>
+              <button onclick="openModal('court-letter', 'Запрос информационного письма в суд', 'Укажите номер дела или суть спора — мы оперативно подготовим официальное гарантийное письмо со сроками и стоимостью.')" 
+                      class="shrink-0 px-3.5 py-2 rounded-lg bg-amber-600/20 hover:bg-amber-600 text-amber-400 hover:text-white border border-amber-500/40 text-xs font-semibold transition-colors">
+                Запросить
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- БЛОК «ОСНОВНЫЕ НАПРАВЛЕНИЯ ЭКСПЕРТИЗЫ»                                -->
+  <!-- ===================================================================== -->
+  <section id="services" class="py-20 sm:py-24 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Заголовок секции -->
+      <div class="max-w-3xl mb-14">
+        <div class="inline-flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest mb-3">
+          <span class="w-6 h-0.5 bg-amber-600"></span>
+          Компетенции и направления
+        </div>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 tracking-tight">
+          Основные направления строительно-технической экспертизы
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
+          Проводим комплексные инженерные исследования объектов капитального строительства, жилых помещений и инженерных сетей с оформлением официального заключения специалиста или судебного эксперта.
+        </p>
+      </div>
+
+      <!-- Сетка из 6 интерактивных карточек -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        
+        <!-- Карточка 1 -->
+        <div class="group bg-white rounded-2xl border border-slate-200/90 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-500 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <i data-lucide="scale" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600">ФЗ-73 • АПК / ГПК</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
+              Судебная строительно-техническая экспертиза
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mt-3">
+              Проведение экспертиз по определениям арбитражных судов и судов общей юрисдикции. Подготовка объективных рецензий на ошибочные или необъективные заключения экспертов оппонентов.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Споры по договорам строительного подряда</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Рецензирование судебных экспертиз</li>
+            </ul>
+          </div>
+          <div class="mt-7 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-400">Срок: от 7 раб. дней</span>
+            <button onclick="openModal('service', 'Судебная строительно-техническая экспертиза', 'Оставьте заявку на консультацию или подготовку информационного письма в суд по вашему делу.')" 
+                    class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700">
+              Заказать экспертизу <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="group bg-white rounded-2xl border border-slate-200/90 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-500 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <i data-lucide="droplets" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600">ГРАНД-Смета</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
+              Оценка ущерба после залива, пожара и ЧС
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mt-3">
+              Установление технической причины затопления или возгорания, фиксация скрытых и явных повреждений, составление дефектной ведомости и локального сметного расчета восстановительного ремонта.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Расчет по актуальной базе ФСНБ-2022</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Взыскание ущерба с УК, соседей, застройщика</li>
+            </ul>
+          </div>
+          <div class="mt-7 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-400">Срок: от 3 раб. дней</span>
+            <button onclick="openModal('service', 'Оценка ущерба после залива / пожара', 'Оперативный выезд эксперта для фиксации следов повреждений и расчета сметы ремонта.')" 
+                    class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700">
+              Заказать экспертизу <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="group bg-white rounded-2xl border border-slate-200/90 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-500 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <i data-lucide="hard-hat" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600">СП • ГОСТ • ФЗ-214</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
+              Контроль качества строительно-монтажных работ
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mt-3">
+              Инструментальное выявление отступлений от проектной документации, строительных норм и правил (СП, ГОСТ). Профессиональная приемка квартир в новостройках и частных домов.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Определение объемов и стоимости СМР</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Фиксация строительных дефектов и брака</li>
+            </ul>
+          </div>
+          <div class="mt-7 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-400">Срок: от 4 раб. дней</span>
+            <button onclick="openModal('service', 'Контроль качества СМР и приемка', 'Укажите тип объекта — проверим соответствие выполненных работ проекту и СП.')" 
+                    class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700">
+              Заказать экспертизу <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Карточка 4 -->
+        <div class="group bg-white rounded-2xl border border-slate-200/90 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-500 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <i data-lucide="thermometer-snowflake" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600">ГОСТ Р 54852</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
+              Тепловизионное обследование и теплоаудит
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mt-3">
+              Неразрушающий тепловизионный контроль ограждающих конструкций по ГОСТ Р 54852. Точное выявление мостиков холода, зон промерзания, дефектов утепления кровли, фасадов и оконных блоков.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Термограммы с температурным профилем</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Поиск скрытых протечек теплых полов</li>
+            </ul>
+          </div>
+          <div class="mt-7 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-400">Срок: от 2 раб. дней</span>
+            <button onclick="openModal('service', 'Тепловизионное обследование (ГОСТ Р 54852)', 'Проведем съемку поверенным тепловизором и подготовим технический отчет.')" 
+                    class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700">
+              Заказать экспертизу <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Карточка 5 -->
+        <div class="group bg-white rounded-2xl border border-slate-200/90 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-500 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <i data-lucide="home" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600">Постановление № 47</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
+              Признание дома пригодным для проживания / аварийным
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mt-3">
+              Инженерное обследование жилых домов для оформления материнского капитала по Постановлению Правительства РФ № 47, перевода садового дома (СНТ) в жилой (ИЖС) или признания жилья аварийным.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Заключения для СФР и администраций</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Оценка физического износа конструкций</li>
+            </ul>
+          </div>
+          <div class="mt-7 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-400">Срок: от 3 раб. дней</span>
+            <button onclick="openModal('service', 'Признание дома пригодным / аварийным (ПП №47)', 'Подготовим заключение для СФР, материнского капитала или межведомственной комиссии.')" 
+                    class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700">
+              Заказать экспертизу <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Карточка 6 -->
+        <div class="group bg-white rounded-2xl border border-slate-200/90 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-500 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <i data-lucide="building-2" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600">ст. 222 ГК РФ</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 group-hover:text-amber-700 transition-colors">
+              Экспертиза самовольных построек и раздел домов
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mt-3">
+              Техническое обоснование надежности, безопасности конструкций и соблюдения градостроительных регламентов для узаконивания реконструкций и самостроев через суд (ст. 222 ГК РФ), а также выдел долей в натуре.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Варианты реального раздела домовладений</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600 shrink-0"></i> Проверка отступов и пожарных норм</li>
+            </ul>
+          </div>
+          <div class="mt-7 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-400">Срок: от 5 раб. дней</span>
+            <button onclick="openModal('service', 'Экспертиза самовольной постройки / раздела дома', 'Проведем обследование и подготовим заключение для узаконивания или раздела.')" 
+                    class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-600 hover:text-amber-700">
+              Заказать экспертизу <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР СТОИМОСТИ ЭКСПЕРТИЗЫ                        -->
+  <!-- ===================================================================== -->
+  <section id="calculator" class="py-20 sm:py-24 bg-white border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <div class="inline-flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest mb-3">
+          <span class="w-6 h-0.5 bg-amber-600"></span>
+          Онлайн-расчет
+        </div>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 tracking-tight">
+          Калькулятор предварительной стоимости и сроков
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg mt-3">
+          Укажите параметры объекта и цель исследования — система рассчитает ориентировочную стоимость работ и срок готовности экспертного заключения.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Панель настроек калькулятора (7 колонок) -->
+        <div class="lg:col-span-7 bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-7">
+          
+          <!-- 1. Тип объекта -->
+          <div>
+            <label class="block text-sm font-bold text-slate-900 mb-3">1. Выберите тип объекта обследования</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="calc-object-group">
+              <button type="button" data-value="apartment" data-label="Квартира / апартаменты" data-mult="1.0" 
+                      class="calc-obj-btn active text-left p-4 rounded-xl border-2 border-amber-600 bg-white shadow-sm transition-all flex items-center gap-3">
+                <i data-lucide="building" class="w-5 h-5 text-amber-600 shrink-0"></i>
+                <div>
+                  <div class="font-bold text-sm text-slate-900">Квартира</div>
+                  <div class="text-xs text-slate-500">Новостройка или вторичный фонд</div>
+                </div>
+              </button>
+
+              <button type="button" data-value="house" data-label="Частный жилой дом / коттедж" data-mult="1.25" 
+                      class="calc-obj-btn text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center gap-3">
+                <i data-lucide="home" class="w-5 h-5 text-slate-500 shrink-0"></i>
+                <div>
+                  <div class="font-bold text-sm text-slate-900">Частный дом / коттедж</div>
+                  <div class="text-xs text-slate-500">ИЖС, СНТ, таунхаус</div>
+                </div>
+              </button>
+
+              <button type="button" data-value="commercial" data-label="Коммерческое / промышленное здание" data-mult="1.65" 
+                      class="calc-obj-btn text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center gap-3">
+                <i data-lucide="factory" class="w-5 h-5 text-slate-500 shrink-0"></i>
+                <div>
+                  <div class="font-bold text-sm text-slate-900">Коммерческое / пром. здание</div>
+                  <div class="text-xs text-slate-500">Офис, склад, цех, ТЦ</div>
+                </div>
+              </button>
+
+              <button type="button" data-value="linear" data-label="Линейный / инженерный объект" data-mult="1.8" 
+                      class="calc-obj-btn text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center gap-3">
+                <i data-lucide="route" class="w-5 h-5 text-slate-500 shrink-0"></i>
+                <div>
+                  <div class="font-bold text-sm text-slate-900">Линейный объект / сети</div>
+                  <div class="text-xs text-slate-500">Дороги, трубопроводы, ЛЭП</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Цель экспертизы -->
+          <div>
+            <label class="block text-sm font-bold text-slate-900 mb-3">2. Цель проведения экспертизы</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="calc-purpose-group">
+              <button type="button" data-value="judicial" data-label="Судебная экспертиза (по определению суда)" data-base="28000" data-days="10"
+                      class="calc-purp-btn active text-left p-4 rounded-xl border-2 border-amber-600 bg-white shadow-sm transition-all">
+                <div class="font-bold text-sm text-slate-900">Судебная экспертиза</div>
+                <div class="text-xs text-slate-500 mt-0.5">По определению суда (ФЗ-73)</div>
+              </button>
+
+              <button type="button" data-value="pretrial" data-label="Досудебная экспертиза / для себя" data-base="18000" data-days="5"
+                      class="calc-purp-btn text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all">
+                <div class="font-bold text-sm text-slate-900">Досудебная / для себя</div>
+                <div class="text-xs text-slate-500 mt-0.5">Заключение специалиста, приемка</div>
+              </button>
+
+              <button type="button" data-value="damage" data-label="Оценка ущерба (залив, пожар) + смета" data-base="15000" data-days="4"
+                      class="calc-purp-btn text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all">
+                <div class="font-bold text-sm text-slate-900">Оценка ущерба + смета</div>
+                <div class="text-xs text-slate-500 mt-0.5">Залив, пожар (ПК ГРАНД-Смета)</div>
+              </button>
+
+              <button type="button" data-value="thermal" data-label="Тепловизионный аудит (ГОСТ Р 54852)" data-base="10000" data-days="2"
+                      class="calc-purp-btn text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all">
+                <div class="font-bold text-sm text-slate-900">Тепловизионный аудит</div>
+                <div class="text-xs text-slate-500 mt-0.5">Поиск промерзаний и утечек тепла</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Площадь объекта -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label for="calc-area-range" class="text-sm font-bold text-slate-900">3. Ориентировочная площадь / протяженность</label>
+              <div class="inline-flex items-center bg-white border border-slate-300 rounded-lg px-3 py-1">
+                <input type="number" id="calc-area-input" value="85" min="15" max="5000" class="w-16 text-right font-display font-bold text-slate-900 text-sm focus:outline-none">
+                <span class="text-xs font-semibold text-slate-500 ml-1.5">м² (п.м.)</span>
+              </div>
+            </div>
+            <input type="range" id="calc-area-range" min="15" max="2000" step="5" value="85" class="w-full my-2">
+            <div class="flex justify-between text-xs text-slate-400 font-medium">
+              <span>15 м²</span>
+              <span>500 м²</span>
+              <span>1 000 м²</span>
+              <span>2 000+ м²</span>
+            </div>
+          </div>
+
+          <!-- Дополнительная опция: Смета в ГРАНД-Смета -->
+          <div class="pt-2 border-t border-slate-200">
+            <label class="flex items-center gap-3 cursor-pointer select-none">
+              <input type="checkbox" id="calc-smeta-check" checked class="w-5 h-5 rounded border-slate-300 text-amber-600 focus:ring-amber-500 accent-amber-600">
+              <span class="text-sm font-medium text-slate-700">
+                Включить локальный сметный расчет в <strong class="text-slate-900">ПК «ГРАНД-Смета» (ФСНБ-2022)</strong>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Панель результата расчета (5 колонок) -->
+        <div class="lg:col-span-5 bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-amber-400 text-xs font-semibold mb-6">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i>
+              Предварительная смета
+            </div>
+
+            <div class="space-y-4 pb-6 border-b border-slate-800">
+              <div>
+                <div class="text-xs text-slate-400 uppercase tracking-wider">Ориентировочная стоимость</div>
+                <div id="calc-result-price" class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-1">
+                  от 28 000 ₽
+                </div>
+              </div>
+
+              <div class="flex items-center gap-6 pt-2">
+                <div>
+                  <div class="text-xs text-slate-400">Срок подготовки</div>
+                  <div id="calc-result-days" class="font-display font-bold text-lg text-amber-400 mt-0.5">
+                    7–10 рабочих дней
+                  </div>
+                </div>
+                <div class="h-8 w-px bg-slate-800"></div>
+                <div>
+                  <div class="text-xs text-slate-400">Выезд по Абакану</div>
+                  <div class="font-display font-bold text-lg text-emerald-400 mt-0.5">
+                    Включен
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Сводка выбранных параметров -->
+            <div class="py-5 space-y-2.5 text-xs sm:text-sm">
+              <div class="flex justify-between gap-2">
+                <span class="text-slate-400">Объект:</span>
+                <span id="summary-obj" class="font-semibold text-right text-slate-200">Квартира / апартаменты</span>
+              </div>
+              <div class="flex justify-between gap-2">
+                <span class="text-slate-400">Задача:</span>
+                <span id="summary-purp" class="font-semibold text-right text-slate-200">Судебная экспертиза (по определению суда)</span>
+              </div>
+              <div class="flex justify-between gap-2">
+                <span class="text-slate-400">Площадь:</span>
+                <span id="summary-area" class="font-semibold text-right text-slate-200">85 м²</span>
+              </div>
+              <div class="flex justify-between gap-2">
+                <span class="text-slate-400">Сметный расчет:</span>
+                <span id="summary-smeta" class="font-semibold text-right text-amber-400">Да (ФСНБ-2022)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <button type="button" onclick="sendCalcToModal()" 
+                    class="w-full py-4 px-6 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-base shadow-lg shadow-amber-600/25 transition-all flex items-center justify-center gap-2">
+              <span>Зафиксировать расчет и получить КП</span>
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+            <p class="text-[11px] text-slate-400 text-center leading-normal">
+              Точная стоимость фиксируется в договоре после бесплатного изучения вашей документации и перечня вопросов.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- БЛОК «ГАРАНТИИ ЛЕГИТИМНОСТИ И ИНСТРУМЕНТАРИЙ»                         -->
+  <!-- ===================================================================== -->
+  <section id="guarantees" class="py-20 sm:py-24 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-14">
+        <div class="inline-flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest mb-3">
+          <span class="w-6 h-0.5 bg-amber-600"></span>
+          Допуски и приборная база
+        </div>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 tracking-tight">
+          Гарантии легитимности заключений и профессиональный инструментарий
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg mt-4">
+          Суд принимает заключение в качестве надлежащего доказательства только при подтвержденной квалификации экспертов, наличии допусков СРО и поверенных средств измерений.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Гарантия 1: СРО и Палата судебных экспертов -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mb-6">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-slate-900">
+            Членство в СРО НОПРИЗ и Палате судебных экспертов РФ
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-3">
+            Организация состоит в профильной саморегулируемой организации в области инженерных изысканий и архитектурно-строительного проектирования. Специалисты включены в Национальный реестр специалистов (НРС) и сертифицированы по судебным экспертным специальностям.
+          </p>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700">НРС НОПРИЗ</span>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700">Сертификаты СЭ</span>
+          </div>
+        </div>
+
+        <!-- Гарантия 2: ПК ГРАНД-Смета -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mb-6">
+            <i data-lucide="calculator" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-slate-900">
+            Сметные расчеты в лицензионном ПК «ГРАНД-Смета»
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-3">
+            Определяем стоимость устранения дефектов, восстановительного ремонта или фактически выполненных СМР ресурсно-индексным методом (РИМ) в актуальной нормативной базе <strong class="text-slate-900">ФСНБ-2022</strong> с индексами Минстроя РФ по Республике Хакасия.
+          </p>
+          <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700">ФСНБ-2022</span>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700">МДС 81-35.2004</span>
+          </div>
+        </div>
+
+        <!-- Гарантия 3: Поверенное оборудование -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mb-6">
+            <i data-lucide="crosshair" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-slate-900">
+            Поверенное измерительное оборудование (ФГИС «Аршин»)
+          </h3>
+          <p class="text-slate-600 text-sm leading-relaxed mt-3">
+            Все инструментальные замеры проводятся приборами, внесенными в Госреестр СИ и имеющими действующие свидетельства о поверке (прикладываются к каждому заключению):
+          </p>
+          <ul class="mt-3 space-y-1.5 text-xs font-medium text-slate-700">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Инфракрасные тепловизоры высокой четкости</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Склерометры (измерители прочности бетона)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Лазерные нивелиры, дальномеры и влагомеры</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- ЭТАПЫ ПРОВЕДЕНИЯ ЭКСПЕРТИЗЫ (5 ШАГОВ)                                 -->
+  <!-- ===================================================================== -->
+  <section id="stages" class="py-20 sm:py-24 bg-white border-t border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-14">
+        <div class="inline-flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest mb-3">
+          <span class="w-6 h-0.5 bg-amber-600"></span>
+          Порядок взаимодействия
+        </div>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 tracking-tight">
+          5 понятных этапов проведения экспертизы
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg mt-3">
+          Прозрачный алгоритм работы с четкой фиксацией сроков, стоимости и процессуальных требований на каждом шаге.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        
+        <!-- Шаг 1 -->
+        <div class="relative bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-500 font-display font-extrabold text-base flex items-center justify-center mb-4">
+              01
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900">Анализ задачи и документов</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mt-2">
+              Бесплатно изучаем материалы дела, проектную документацию или акт залива. Формулируем корректные вопросы для эксперта.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/70 text-[11px] font-bold text-amber-700 uppercase">
+            В день обращения
+          </div>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div class="relative bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-500 font-display font-extrabold text-base flex items-center justify-center mb-4">
+              02
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900">Договор или письмо в суд</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mt-2">
+              Заключаем договор на досудебную экспертизу либо выдаем официальное информационное письмо для ходатайства в суде.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/70 text-[11px] font-bold text-slate-500 uppercase">
+            Фиксация цены
+          </div>
+        </div>
+
+        <!-- Шаг 3 -->
+        <div class="relative bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-500 font-display font-extrabold text-base flex items-center justify-center mb-4">
+              03
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900">Выезд и осмотр объекта</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mt-2">
+              Инструментальные замеры, фотофиксация дефектов, составление акта осмотра в присутствии заинтересованных сторон.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/70 text-[11px] font-bold text-slate-500 uppercase">
+            Поверенные приборы
+          </div>
+        </div>
+
+        <!-- Шаг 4 -->
+        <div class="relative bg-[#F8FAFC] border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-slate-900 text-amber-500 font-display font-extrabold text-base flex items-center justify-center mb-4">
+              04
+            </div>
+            <h3 class="font-display font-bold text-base text-slate-900">Камеральная обработка и смета</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mt-2">
+              Анализ соответствия СП/ГОСТ, инженерные расчеты и составление локальной сметы в ПК «ГРАНД-Смета».
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-200/70 text-[11px] font-bold text-slate-500 uppercase">
+            ФСНБ-2022
+          </div>
+        </div>
+
+        <!-- Шаг 5 -->
+        <div class="relative bg-slate-900 text-white border border-slate-800 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-amber-600 text-white font-display font-extrabold text-base flex items-center justify-center mb-4">
+              05
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Выдача заключения и защита в суде</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mt-2">
+              Передаем прошитое и заверенное заключение с приложениями. При необходимости эксперт выступает в суде в защиту выводов.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-bold text-amber-400 uppercase">
+            Юридический результат
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- B2B-ОФФЕР ДЛЯ ЮРИСТОВ, АДВОКАТОВ И АРБИТРАЖНЫХ УПРАВЛЯЮЩИХ            -->
+  <!-- ===================================================================== -->
+  <section id="b2b" class="py-20 sm:py-24 bg-[#0F172A] blueprint-grid text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-slate-800/75 backdrop-blur-md border border-slate-700 rounded-3xl p-8 sm:p-12 shadow-2xl">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
+              <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+              Специальный сервис для представителей в суде
+            </div>
+            
+            <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white leading-tight">
+              Юристам, адвокатам и арбитражным управляющим
+            </h2>
+            
+            <p class="text-slate-300 text-base leading-relaxed">
+              Помогаем процессуально грамотно заявить ходатайство о назначении судебной строительно-технической экспертизы в Арбитражном суде Республики Хакасия и судах общей юрисдикции.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-slate-900/70 border border-slate-700/80 rounded-xl p-4">
+                <div class="flex items-center gap-2.5 font-bold text-white text-sm mb-1.5">
+                  <i data-lucide="file-text" class="w-4 h-4 text-amber-500"></i>
+                  Информационное письмо в суд
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Официальное согласие на проведение экспертизы с указанием сроков, точной стоимости и копиями дипломов/допусков экспертов.
+                </p>
+              </div>
+
+              <div class="bg-slate-900/70 border border-slate-700/80 rounded-xl p-4">
+                <div class="flex items-center gap-2.5 font-bold text-white text-sm mb-1.5">
+                  <i data-lucide="help-circle" class="w-4 h-4 text-amber-500"></i>
+                  Формулировка вопросов эксперту
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  Поможем составить технически корректные вопросы, исключающие двусмысленность и выход эксперта за пределы компетенции.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-7 space-y-5">
+              <h3 class="font-display font-bold text-lg text-white">
+                Получить информационное письмо для суда
+              </h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Подготовим пакет документов (информационное письмо + квалификационные документы экспертов) в течение 2 часов в электронном виде или с живой печатью в офисе.
+              </p>
+              <button onclick="openModal('court-letter', 'Информационное письмо в суд (для юристов)', 'Укажите наименование суда, номер дела (если присвоен) и суть спора.')" 
+                      class="w-full py-3.5 px-5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-sm shadow-lg shadow-amber-600/20 transition-all flex items-center justify-center gap-2">
+                <i data-lucide="file-plus-2" class="w-4 h-4"></i>
+                Заказать письмо для ходатайства
+              </button>
+              <div class="text-center text-xs text-slate-400">
+                Или направьте определение/вопросы на <a href="mailto:stanislav_exp@mail.ru" class="text-amber-400 hover:underline font-medium">stanislav_exp@mail.ru</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ АККОРДЕОН)                               -->
+  <!-- ===================================================================== -->
+  <section id="faq" class="py-20 sm:py-24 bg-[#F8FAFC]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest mb-3">
+          Вопросы и ответы
+        </div>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 tracking-tight">
+          Частые вопросы о строительной экспертизе
+        </h2>
+      </div>
+
+      <div class="space-y-4" id="faq-list">
+        
+        <!-- Вопрос 1 -->
+        <div class="faq-item active bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="font-display font-bold text-base sm:text-lg text-slate-900">
+              Принимаются ли ваши досудебные заключения в качестве доказательства в суде?
+            </span>
+            <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 transition-transform duration-200 faq-icon rotate-180">
+              <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner">
+              <div class="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                Да, в соответствии со ст. 71 ГПК РФ и ст. 64 АПК РФ заключение специалиста является письменным доказательством по делу и служит основанием для подачи иска, обоснования цены иска или назначения судебной экспертизы. Наши заключения оформляются по стандартам ФЗ № 73-ФЗ с приложением документов о квалификации экспертов, членстве в СРО НОПРИЗ и свидетельств о поверке измерительных приборов.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вопрос 2 -->
+        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="font-display font-bold text-base sm:text-lg text-slate-900">
+              Сколько времени занимает проведение экспертизы и подготовка заключения?
+            </span>
+            <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 transition-transform duration-200 faq-icon">
+              <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner">
+              <div class="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                Срок зависит от сложности объекта и перечня поставленных вопросов. Тепловизионное обследование и оценка ущерба после залива квартиры занимают от 2 до 5 рабочих дней. Комплексная судебная строительно-техническая экспертиза промышленных или жилых зданий со сметными расчетами в ПК «ГРАНД-Смета» выполняется в среднем за 7–15 рабочих дней.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вопрос 3 -->
+        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="font-display font-bold text-base sm:text-lg text-slate-900">
+              Можно ли взыскать расходы на оплату экспертизы с проигравшей стороны?
+            </span>
+            <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 transition-transform duration-200 faq-icon">
+              <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner">
+              <div class="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                Да, в полном объеме. Согласно ст. 94 и 98 ГПК РФ, а также ст. 106 и 110 АПК РФ расходы на проведение как судебной, так и досудебной независимой экспертизы относятся к судебным издержкам и взыскиваются судом с проигравшей стороны в вашу пользу. Мы предоставляем полный пакет закрывающих финансовых документов (договор, акт выполненных работ, чек/платежное поручение).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вопрос 4 -->
+        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="font-display font-bold text-base sm:text-lg text-slate-900">
+              Как назначается ваша организация для проведения судебной экспертизы?
+            </span>
+            <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 transition-transform duration-200 faq-icon">
+              <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner">
+              <div class="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                Перед судебным заседанием вы обращаетесь в ООО «КСК ЭКСПОСТРОЙ», мы изучаем суть спора и выдаем официальное информационное письмо о готовности провести экспертизу, сроках и стоимости. Вы приобщаете это письмо к ходатайству о назначении судебной экспертизы и вносите необходимую сумму на депозитный счет суда.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вопрос 5 -->
+        <div class="faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none">
+            <span class="font-display font-bold text-base sm:text-lg text-slate-900">
+              Выезжают ли эксперты за пределы Абакана по Республике Хакасия и югу Красноярского края?
+            </span>
+            <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 transition-transform duration-200 faq-icon">
+              <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-inner">
+              <div class="px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                Да, мы регулярно проводим обследования объектов в Черногорске, Саяногорске, Сорске, Абазе, во всех районах Республики Хакасия (Усть-Абаканский, Алтайский, Аскизский, Ширинский и др.), а также в Минусинске и южных районах Красноярского края.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- КОНТАКТЫ И ФОРМА ОБРАТНОЙ СВЯЗИ                                       -->
+  <!-- ===================================================================== -->
+  <section id="contacts" class="py-20 sm:py-24 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Левая колонка: Реквизиты, адрес, телефоны, схема проезда -->
+        <div class="lg:col-span-6 space-y-8">
+          <div>
+            <div class="inline-flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest mb-3">
+              <span class="w-6 h-0.5 bg-amber-600"></span>
+              Контакты
+            </div>
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 tracking-tight">
+              Свяжитесь с экспертами ООО «КСК ЭКСПОСТРОЙ»
+            </h2>
+            <p class="text-slate-600 text-base mt-3">
+              Принимаем клиентов в офисе в центре Абакана и дистанционно по всей России.
+            </p>
+          </div>
+
+          <div class="space-y-5">
+            <!-- Адрес -->
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-slate-100 text-amber-600 flex items-center justify-center shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Адрес офиса</div>
+                <div class="font-semibold text-slate-900 text-base mt-0.5">
+                  655017, Республика Хакасия, г. Абакан, ул. Советская, д. 75, офис 316 (3 этаж)
+                </div>
+                <div class="text-xs text-slate-500 mt-1">Пн–Пт: с 09:00 до 18:00 • Выезд на осмотры по согласованию</div>
+              </div>
+            </div>
+
+            <!-- Телефоны -->
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-slate-100 text-amber-600 flex items-center justify-center shrink-0">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Телефоны для консультаций</div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 mt-1">
+                  <a href="tel:+79832729111" class="font-display font-extrabold text-lg text-slate-900 hover:text-amber-600 transition-colors">
+                    +7 (983) 272-91-11
+                  </a>
+                  <a href="tel:+79235560070" class="font-display font-extrabold text-lg text-slate-900 hover:text-amber-600 transition-colors">
+                    +7 (923) 556-00-70
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-xl bg-slate-100 text-amber-600 flex items-center justify-center shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Электронная почта (для документов и определений суда)</div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 mt-1">
+                  <a href="mailto:stanislav_exp@mail.ru" class="font-semibold text-base text-slate-900 hover:text-amber-600 transition-colors">
+                    stanislav_exp@mail.ru
+                  </a>
+                  <a href="mailto:expo_company@mail.ru" class="font-semibold text-base text-slate-900 hover:text-amber-600 transition-colors">
+                    expo_company@mail.ru
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Стилизованная инженерная карта-схема локации -->
+          <div class="bg-slate-900 rounded-2xl p-6 text-white relative overflow-hidden border border-slate-800">
+            <div class="blueprint-grid absolute inset-0 opacity-60 pointer-events-none"></div>
+            <div class="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Навигация в 2ГИС / Яндекс.Картах</span>
+                <div class="font-display font-bold text-base text-white mt-1">г. Абакан, ул. Советская, 75, оф. 316</div>
+                <div class="text-xs text-slate-400 mt-0.5">Удобная парковка у входа в здание (3 этаж)</div>
+              </div>
+              <a href="https://yandex.ru/maps/?text=Абакан%2C%20улица%20Советская%2C%2075" target="_blank" rel="noopener noreferrer" 
+                 class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-amber-600 text-white text-xs font-semibold border border-slate-700 transition-colors shrink-0">
+                <i data-lucide="navigation" class="w-4 h-4"></i>
+                Открыть на карте
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: Форма заявки с валидацией -->
+        <div class="lg:col-span-6">
+          <div class="bg-[#F8FAFC] border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm">
+            <h3 class="font-display font-bold text-2xl text-slate-900">
+              Заказать бесплатную консультацию эксперта
+            </h3>
+            <p class="text-sm text-slate-600 mt-2">
+              Оставьте контакты и кратко опишите ситуацию. Профильный судебный эксперт свяжется с вами и предложит план решения задачи.
+            </p>
+
+            <form id="contact-form" class="mt-6 space-y-4" novalidate>
+              <div>
+                <label for="contact-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Ваше имя или организация *
+                </label>
+                <input type="text" id="contact-name" name="name" required placeholder="Например: Алексей Викторович / ООО «СтройИнвест»"
+                       class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20 transition-all">
+                <p class="error-msg hidden text-xs text-red-600 mt-1 font-medium">Пожалуйста, укажите ваше имя</p>
+              </div>
+
+              <div>
+                <label for="contact-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Контактный телефон *
+                </label>
+                <input type="tel" id="contact-phone" name="phone" required placeholder="+7 (___) ___-__-__"
+                       class="phone-mask w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20 transition-all">
+                <p class="error-msg hidden text-xs text-red-600 mt-1 font-medium">Введите корректный номер телефона (11 цифр)</p>
+              </div>
+
+              <div>
+                <label for="contact-direction" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Направление экспертизы
+                </label>
+                <select id="contact-direction" name="direction"
+                        class="w-full px-4 py-3.5 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20 transition-all">
+                  <option value="Судебная строительно-техническая экспертиза">Судебная строительно-техническая экспертиза</option>
+                  <option value="Оценка ущерба после залива / пожара">Оценка ущерба после залива / пожара</option>
+                  <option value="Контроль качества СМР / приемка объекта">Контроль качества СМР / приемка объекта</option>
+                  <option value="Тепловизионное обследование">Тепловизионное обследование</option>
+                  <option value="Признание дома пригодным / аварийным (ПП №47)">Признание дома пригодным / аварийным (ПП №47)</option>
+                  <option value="Узаконивание самовольной постройки / раздел">Узаконивание самовольной постройки / раздел</option>
+                  <option value="Информационное письмо в суд (для юристов)">Информационное письмо в суд (для юристов)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contact-comment" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Краткое описание ситуации или объекта
+                </label>
+                <textarea id="contact-comment" name="comment" rows="3" placeholder="Опишите объект, адрес или суть спора..."
+                          class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20 transition-all"></textarea>
+              </div>
+
+              <div class="pt-1">
+                <label class="flex items-start gap-2.5 cursor-pointer">
+                  <input type="checkbox" id="contact-agree" checked required class="mt-0.5 w-4 h-4 rounded border-slate-300 accent-amber-600">
+                  <span class="text-xs text-slate-500 leading-normal">
+                    Согласен на обработку персональных данных в соответствии с ФЗ № 152-ФЗ «О персональных данных».
+                  </span>
+                </label>
+              </div>
+
+              <button type="submit" 
+                      class="w-full py-4 px-6 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-base shadow-lg shadow-amber-600/20 transition-all flex items-center justify-center gap-2">
+                <span>Отправить заявку эксперту</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- ПОДВАЛ САЙТА (FOOTER)                                                 -->
+  <!-- ===================================================================== -->
+  <footer class="bg-slate-950 text-slate-400 border-t border-slate-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-900">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-amber-600 flex items-center justify-center text-white font-display font-extrabold text-sm">
+              КСК
+            </div>
+            <span class="font-display font-extrabold text-white text-lg tracking-tight">
+              ООО «КСК ЭКСПОСТРОЙ»
+            </span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-md">
+            Независимая судебная и досудебная строительно-техническая экспертиза, строительный аудит, тепловизионный контроль и сметные расчеты в ПК «ГРАНД-Смета» (ФСНБ-2022).
+          </p>
+          <div class="text-xs text-slate-500">
+            Членство в СРО НОПРИЗ и Палате судебных экспертов РФ • Работаем по ФЗ № 73-ФЗ
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-2.5 text-xs">
+          <div class="font-bold text-white uppercase tracking-wider mb-3">Разделы</div>
+          <div><a href="#services" class="hover:text-amber-400 transition-colors">Направления экспертизы</a></div>
+          <div><a href="#calculator" class="hover:text-amber-400 transition-colors">Калькулятор стоимости</a></div>
+          <div><a href="#guarantees" class="hover:text-amber-400 transition-colors">Допуски и оборудование</a></div>
+          <div><a href="#b2b" class="hover:text-amber-400 transition-colors">Для юристов и судов</a></div>
+          <div><a href="#faq" class="hover:text-amber-400 transition-colors">Частые вопросы</a></div>
+        </div>
+
+        <div class="md:col-span-4 space-y-2.5 text-xs">
+          <div class="font-bold text-white uppercase tracking-wider mb-3">Контакты в Абакане</div>
+          <div class="text-slate-300">655017, Республика Хакасия, г. Абакан, ул. Советская, д. 75, офис 316 (3 этаж)</div>
+          <div class="pt-1">
+            <a href="tel:+79832729111" class="text-white font-bold text-sm hover:text-amber-400">+7 (983) 272-91-11</a>
+          </div>
+          <div>
+            <a href="tel:+79235560070" class="text-white font-bold text-sm hover:text-amber-400">+7 (923) 556-00-70</a>
+          </div>
+          <div class="pt-1 flex flex-col gap-1">
+            <a href="mailto:stanislav_exp@mail.ru" class="hover:text-amber-400">stanislav_exp@mail.ru</a>
+            <a href="mailto:expo_company@mail.ru" class="hover:text-amber-400">expo_company@mail.ru</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>© 2026 ООО «КСК ЭКСПОСТРОЙ». Все права защищены.</div>
+        <div>Информация на сайте носит ознакомительный характер и не является публичной офертой.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ / КОНСУЛЬТАЦИИ / ПИСЬМА В СУД                   -->
+  <!-- ===================================================================== -->
+  <div id="universal-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-[fadeIn_0.2s_ease-out]">
+      
+      <button type="button" onclick="closeModal()" aria-label="Закрыть окно" 
+              class="absolute top-5 right-5 w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold mb-3">
+        <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+        ООО «КСК ЭКСПОСТРОЙ»
+      </div>
+
+      <h3 id="modal-title" class="font-display font-extrabold text-xl sm:text-2xl text-slate-900 pr-8">
+        Получить консультацию эксперта
+      </h3>
+      <p id="modal-subtitle" class="text-sm text-slate-600 mt-2 leading-relaxed">
+        Оставьте ваши контакты — мы свяжемся с вами в течение 15 минут.
+      </p>
+
+      <form id="modal-form" class="mt-5 space-y-4" novalidate>
+        <input type="hidden" id="modal-type" name="type" value="consult">
+        
+        <div>
+          <label for="modal-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Ваше имя / организация *</label>
+          <input type="text" id="modal-name" required placeholder="Иван Сергеевич"
+                 class="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20">
+          <p class="error-msg hidden text-xs text-red-600 mt-1 font-medium">Укажите ваше имя</p>
+        </div>
+
+        <div>
+          <label for="modal-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Телефон для связи *</label>
+          <input type="tel" id="modal-phone" required placeholder="+7 (___) ___-__-__"
+                 class="phone-mask w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600 focus:ring-2 focus:ring-amber-600/20">
+          <p class="error-msg hidden text-xs text-red-600 mt-1 font-medium">Введите корректный номер телефона</p>
+        </div>
+
+        <div id="modal-court-fields" class="hidden space-y-3 pt-1">
+          <div>
+            <label for="modal-case" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Наименование суда / номер дела</label>
+            <input type="text" id="modal-case" placeholder="Например: АС Республики Хакасия, дело № А74-..."
+                   class="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600">
+          </div>
+        </div>
+
+        <div>
+          <label for="modal-note" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Детали запроса / параметры объекта</label>
+          <textarea id="modal-note" rows="3" placeholder="Кратко опишите вопрос или объект..."
+                    class="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-slate-300 text-slate-900 text-sm focus:outline-none focus:border-amber-600"></textarea>
+        </div>
+
+        <button type="submit" 
+                class="w-full py-3.5 px-6 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-sm shadow-lg shadow-amber-600/20 transition-all">
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- МОДАЛЬНОЕ ОКНО УСПЕШНОЙ ОТПРАВКИ (УВЕДОМЛЕНИЕ)                        -->
+  <!-- ===================================================================== -->
+  <div id="success-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl border border-slate-200">
+      <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto mb-5">
+        <i data-lucide="check-circle-2" class="w-9 h-9"></i>
+      </div>
+      <h3 class="font-display font-extrabold text-2xl text-slate-900">
+        Заявка успешно принята!
+      </h3>
+      <p id="success-text" class="text-sm text-slate-600 mt-3 leading-relaxed">
+        Ваше обращение зарегистрировано в экспертном отделе ООО «КСК ЭКСПОСТРОЙ». Профильный специалист свяжется с вами в ближайшее время.
+      </p>
+      <div class="mt-6 pt-5 border-t border-slate-100 text-xs text-slate-500">
+        Срочный вопрос? Позвоните напрямую:<br>
+        <a href="tel:+79832729111" class="font-bold text-slate-900 text-sm inline-block mt-1">+7 (983) 272-91-11</a>
+      </div>
+      <button type="button" onclick="closeSuccessModal()" 
+              class="mt-6 w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-colors">
+        Вернуться на сайт
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT ЛОГИКА                                                     -->
+  <!-- ===================================================================== -->
+  <script>
+    // Инициализация иконок Lucide
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+      initCalculator();
+      initFAQ();
+      initMobileMenu();
+      initPhoneMasks();
+      initForms();
+    });
+
+    /* ---------------------------------------------------------------------
+       1. МОБИЛЬНОЕ МЕНЮ
+    --------------------------------------------------------------------- */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const links = document.querySelectorAll('.mobile-link');
+
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        menu.classList.toggle('hidden', !isHidden);
+        iconOpen.classList.toggle('hidden', isHidden);
+        iconClose.classList.toggle('hidden', !isHidden);
+      });
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+    }
+
+    /* ---------------------------------------------------------------------
+       2. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР СТОИМОСТИ ЭКСПЕРТИЗЫ
+    --------------------------------------------------------------------- */
+    const calcState = {
+      objValue: 'apartment',
+      objLabel: 'Квартира / апартаменты',
+      objMult: 1.0,
+      purpValue: 'judicial',
+      purpLabel: 'Судебная экспертиза (по определению суда)',
+      purpBase: 28000,
+      purpDays: 10,
+      area: 85,
+      includeSmeta: true
+    };
+
+    function initCalculator() {
+      const objBtns = document.querySelectorAll('.calc-obj-btn');
+      const purpBtns = document.querySelectorAll('.calc-purp-btn');
+      const areaRange = document.getElementById('calc-area-range');
+      const areaInput = document.getElementById('calc-area-input');
+      const smetaCheck = document.getElementById('calc-smeta-check');
+
+      // Выбор типа объекта
+      objBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          objBtns.forEach(b => {
+            b.classList.remove('active', 'border-2', 'border-amber-600', 'shadow-sm');
+            b.classList.add('border', 'border-slate-200');
+            const icon = b.querySelector('svg');
+            if (icon) icon.classList.replace('text-amber-600', 'text-slate-500');
+          });
+          btn.classList.remove('border', 'border-slate-200');
+          btn.classList.add('active', 'border-2', 'border-amber-600', 'shadow-sm');
+          const icon = btn.querySelector('svg');
+          if (icon) icon.classList.replace('text-slate-500', 'text-amber-600');
+
+          calcState.objValue = btn.dataset.value;
+          calcState.objLabel = btn.dataset.label;
+          calcState.objMult = parseFloat(btn.dataset.mult);
+          updateCalculation();
+        });
+      });
+
+      // Выбор цели экспертизы
+      purpBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          purpBtns.forEach(b => {
+            b.classList.remove('active', 'border-2', 'border-amber-600', 'shadow-sm');
+            b.classList.add('border', 'border-slate-200');
+          });
+          btn.classList.remove('border', 'border-slate-200');
+          btn.classList.add('active', 'border-2', 'border-amber-600', 'shadow-sm');
+
+          calcState.purpValue = btn.dataset.value;
+          calcState.purpLabel = btn.dataset.label;
+          calcState.purpBase = parseInt(btn.dataset.base, 10);
+          calcState.purpDays = parseInt(btn.dataset.days, 10);
+          updateCalculation();
+        });
+      });
+
+      // Синхронизация ползунка и поля площади
+      areaRange.addEventListener('input', (e) => {
+        calcState.area = parseInt(e.target.value, 10);
+        areaInput.value = calcState.area;
+        updateCalculation();
+      });
+
+      areaInput.addEventListener('input', (e) => {
+        let val = parseInt(e.target.value, 10);
+        if (isNaN(val) || val < 10) val = 10;
+        if (val > 10000) val = 10000;
+        calcState.area = val;
+        areaRange.value = Math.min(val, 2000);
+        updateCalculation();
+      });
+
+      // Чекбокс сметы
+      smetaCheck.addEventListener('change', (e) => {
+        calcState.includeSmeta = e.target.checked;
+        updateCalculation();
+      });
+
+      updateCalculation();
+    }
+
+    function updateCalculation() {
+      // Расчет коэффициента площади
+      let areaSurcharge = 0;
+      if (calcState.area > 100) {
+        areaSurcharge = Math.round((calcState.area - 100) * 35);
+      }
+
+      let rawPrice = (calcState.purpBase + areaSurcharge) * calcState.objMult;
+      if (calcState.includeSmeta && calcState.purpValue !== 'damage') {
+        rawPrice += 6000;
+      }
+
+      // Округление до 500 руб.
+      const finalPrice = Math.round(rawPrice / 500) * 500;
+
+      // Расчет сроков
+      let minDays = calcState.purpDays;
+      if (calcState.area > 500) minDays += 3;
+      if (calcState.objValue === 'commercial' || calcState.objValue === 'linear') minDays += 2;
+      const maxDays = minDays + 3;
+
+      // Обновление UI
+      document.getElementById('calc-result-price').textContent = `от ${finalPrice.toLocaleString('ru-RU')} ₽`;
+      document.getElementById('calc-result-days').textContent = `${minDays}–${maxDays} рабочих дней`;
+
+      document.getElementById('summary-obj').textContent = calcState.objLabel;
+      document.getElementById('summary-purp').textContent = calcState.purpLabel;
+      document.getElementById('summary-area').textContent = `${calcState.area.toLocaleString('ru-RU')} м²`;
+      document.getElementById('summary-smeta').textContent = calcState.includeSmeta ? 'Да (ФСНБ-2022)' : 'Без сметного расчета';
+    }
+
+    function sendCalcToModal() {
+      const priceText = document.getElementById('calc-result-price').textContent;
+      const daysText = document.getElementById('calc-result-days').textContent;
+      const summaryNote = `Расчет калькулятора:\n• Объект: ${calcState.objLabel}\n• Цель: ${calcState.purpLabel}\n• Площадь: ${calcState.area} м²\n• Смета ФСНБ-2022: ${calcState.includeSmeta ? 'Да' : 'Нет'}\n• Ориентир: ${priceText} (${daysText})`;
+      
+      openModal(
+        'calc',
+        'Зафиксировать предварительный расчет',
+        'Оставьте ваши контакты — эксперт проверит исходные данные и подготовит точное коммерческое предложение.',
+        summaryNote
+      );
+    }
+
+    /* ---------------------------------------------------------------------
+       3. АККОРДЕОН FAQ
+    --------------------------------------------------------------------- */
+    function initFAQ() {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const trigger = item.querySelector('.faq-trigger');
+        const icon = item.querySelector('.faq-icon');
+        trigger.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          items.forEach(i => {
+            i.classList.remove('active');
+            const ic = i.querySelector('.faq-icon');
+            if (ic) ic.classList.remove('rotate-180');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            if (icon) icon.classList.add('rotate-180');
+          }
+        });
+      });
+    }
+
+    /* ---------------------------------------------------------------------
+       4. МОДАЛЬНЫЕ ОКНА
+    --------------------------------------------------------------------- */
+    function openModal(type, title, subtitle, prefillNote = '') {
+      const modal = document.getElementById('universal-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalSubtitle = document.getElementById('modal-subtitle');
+      const modalType = document.getElementById('modal-type');
+      const modalNote = document.getElementById('modal-note');
+      const courtFields = document.getElementById('modal-court-fields');
+
+      modalType.value = type;
+      modalTitle.textContent = title;
+      modalSubtitle.textContent = subtitle;
+      modalNote.value = prefillNote;
+
+      if (type === 'court-letter') {
+        courtFields.classList.remove('hidden');
+      } else {
+        courtFields.classList.add('hidden');
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('universal-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    function openSuccessModal(customText = '') {
+      closeModal();
+      const sModal = document.getElementById('success-modal');
+      if (customText) {
+        document.getElementById('success-text').textContent = customText;
+      }
+      sModal.classList.remove('hidden');
+      sModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSuccessModal() {
+      const sModal = document.getElementById('success-modal');
+      sModal.classList.add('hidden');
+      sModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    // Закрытие модалок по клику на фон или Escape
+    window.addEventListener('click', (e) => {
+      const uModal = document.getElementById('universal-modal');
+      const sModal = document.getElementById('success-modal');
+      if (e.target === uModal) closeModal();
+      if (e.target === sModal) closeSuccessModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeSuccessModal();
+      }
+    });
+
+    /* ---------------------------------------------------------------------
+       5. МАСКА ТЕЛЕФОНА И ВАЛИДАЦИЯ ФОРМ
+    --------------------------------------------------------------------- */
+    function initPhoneMasks() {
+      const phoneInputs = document.querySelectorAll('.phone-mask');
+      phoneInputs.forEach(input => {
+        input.addEventListener('input', function (e) {
+          let digits = this.value.replace(/\D/g, '');
+          if (!digits) {
+            this.value = '';
+            return;
+          }
+          if (digits[0] === '8' || digits[0] === '7') {
+            digits = '7' + digits.slice(1);
+          } else {
+            digits = '7' + digits;
+          }
+          digits = digits.substring(0, 11);
+
+          let formatted = '+7';
+          if (digits.length > 1) formatted += ' (' + digits.substring(1, 4);
+          if (digits.length >= 4) formatted += ') ' + digits.substring(4, 7);
+          if (digits.length >= 7) formatted += '-' + digits.substring(7, 9);
+          if (digits.length >= 9) formatted += '-' + digits.substring(9, 11);
+
+          this.value = formatted;
+        });
+      });
+    }
+
+    function validateField(input, condition) {
+      const errorEl = input.parentElement.querySelector('.error-msg');
+      if (!condition) {
+        input.classList.add('border-red-500');
+        input.classList.remove('border-slate-300');
+        if (errorEl) errorEl.classList.remove('hidden');
+        return false;
+      } else {
+        input.classList.remove('border-red-500');
+        input.classList.add('border-slate-300');
+        if (errorEl) errorEl.classList.add('hidden');
+        return true;
+      }
+    }
+
+    /* ---------------------------------------------------------------------
+       6. ОТПРАВКА ЗАЯВОК НА ПОЧТУ expo_company@mail.ru (FormSubmit AJAX)
+    --------------------------------------------------------------------- */
+    const FORM_EMAIL = 'expo_company@mail.ru';
+    const WA_STORAGE_KEY = 'ksk_wa_number';
+    const DEFAULT_WA = '79832729111';
+
+    function getWhatsAppNumber() {
+      const saved = localStorage.getItem(WA_STORAGE_KEY);
+      return saved ? saved : DEFAULT_WA;
+    }
+
+    function moscowTime() {
+      return new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' }) + ' (МСК)';
+    }
+
+    async function sendToEmail(subject, fields) {
+      const payload = Object.assign({}, fields, {
+        '_subject': subject,
+        '_template': 'table',
+        '_captcha': 'false',
+        'Дата заявки': moscowTime(),
+        'Страница': window.location.href
+      });
+      const response = await fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error('FormSubmit error: ' + response.status);
+    }
+
+    function setBtnLoading(btn, isLoading) {
+      if (!btn) return;
+      const label = btn.querySelector('span') || btn;
+      if (isLoading) {
+        btn.dataset.originalText = label.textContent;
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+        label.textContent = 'Отправляем...';
+      } else {
+        btn.disabled = false;
+        btn.style.opacity = '';
+        label.textContent = btn.dataset.originalText || label.textContent;
+      }
+    }
+
+    function initForms() {
+      // Форма в контактах
+      const contactForm = document.getElementById('contact-form');
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('contact-name');
+        const phoneInput = document.getElementById('contact-phone');
+        const directionInput = document.getElementById('contact-direction');
+        const commentInput = document.getElementById('contact-comment');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        const isNameValid = validateField(nameInput, nameInput.value.trim().length >= 2);
+        const phoneDigits = phoneInput.value.replace(/\D/g, '');
+        const isPhoneValid = validateField(phoneInput, phoneDigits.length === 11);
+        if (!isNameValid || !isPhoneValid) return;
+
+        const clientName = nameInput.value.trim();
+        setBtnLoading(submitBtn, true);
+        try {
+          await sendToEmail('Заявка из раздела «Контакты» — КСК ЭКСПОСТРОЙ', {
+            'Имя': clientName,
+            'Телефон': phoneInput.value.trim(),
+            'Направление экспертизы': directionInput.value,
+            'Комментарий': commentInput.value.trim() || '—'
+          });
+          contactForm.reset();
+          openSuccessModal('Спасибо, ' + clientName + '! Заявка доставлена на почту экспертного отдела ООО «КСК ЭКСПОСТРОЙ». Перезвоним в течение 15 минут.');
+        } catch (err) {
+          openSuccessModal('Не удалось автоматически отправить заявку. Позвоните нам: +7 (983) 272-91-11 или напишите на expo_company@mail.ru — примем заявку напрямую.');
+        } finally {
+          setBtnLoading(submitBtn, false);
+        }
+      });
+
+      // Форма в модальном окне
+      const modalForm = document.getElementById('modal-form');
+      modalForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('modal-name');
+        const phoneInput = document.getElementById('modal-phone');
+        const typeInput = document.getElementById('modal-type');
+        const titleEl = document.getElementById('modal-title');
+        const caseInput = document.getElementById('modal-case');
+        const noteInput = document.getElementById('modal-note');
+        const submitBtn = modalForm.querySelector('button[type="submit"]');
+
+        const isNameValid = validateField(nameInput, nameInput.value.trim().length >= 2);
+        const phoneDigits = phoneInput.value.replace(/\D/g, '');
+        const isPhoneValid = validateField(phoneInput, phoneDigits.length === 11);
+        if (!isNameValid || !isPhoneValid) return;
+
+        const clientName = nameInput.value.trim();
+        const typeVal = typeInput.value;
+        setBtnLoading(submitBtn, true);
+        try {
+          await sendToEmail('Заявка: ' + titleEl.textContent.trim() + ' — КСК ЭКСПОСТРОЙ', {
+            'Имя': clientName,
+            'Телефон': phoneInput.value.trim(),
+            'Раздел / тема': titleEl.textContent.trim(),
+            'Тип обращения': typeVal === 'court-letter' ? 'Информационное письмо в суд' : (typeVal === 'calc' ? 'Расчет из калькулятора' : 'Консультация / заявка'),
+            'Суд / номер дела': (typeVal === 'court-letter' && caseInput) ? (caseInput.value.trim() || '—') : '—',
+            'Детали запроса': noteInput.value.trim() || '—'
+          });
+          modalForm.reset();
+          if (typeVal === 'court-letter') {
+            openSuccessModal('Запрос на информационное письмо в суд принят и доставлен на почту экспертного отдела! Специалист свяжется с вами и направит документ в течение 2 часов.');
+          } else {
+            openSuccessModal('Спасибо, ' + clientName + '! Заявка доставлена на почту экспертного отдела ООО «КСК ЭКСПОСТРОЙ». Профильный эксперт свяжется с вами в ближайшее время.');
+          }
+        } catch (err) {
+          openSuccessModal('Не удалось автоматически отправить заявку. Позвоните нам: +7 (983) 272-91-11 или напишите на expo_company@mail.ru — примем заявку напрямую.');
+        } finally {
+          setBtnLoading(submitBtn, false);
+        }
+      });
+    }
+    </script>
+
+  <!-- ===================================================================== -->
+  <!-- ПЛАВАЮЩАЯ КНОПКА WHATSAPP (номер задается в admin.html)               -->
+  <!-- ===================================================================== -->
+  <a id="wa-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp"
+     class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1FBF59] flex items-center justify-center shadow-xl shadow-emerald-600/30 transition-transform hover:scale-105">
+    <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <script>
+    // Номер WhatsApp берется из админ-панели (localStorage), по умолчанию — 79832729111
+    (function () {
+      const saved = localStorage.getItem('ksk_wa_number');
+      const digits = (saved ? saved : '79832729111').replace(/\D/g, '');
+      const link = document.getElementById('wa-float');
+      if (link) {
+        link.href = 'https://wa.me/' + digits + '?text=' + encodeURIComponent('Здравствуйте! Хочу проконсультироваться по строительно-технической экспертизе.');
+      }
+    })();
+  </script>
+</body>
+</html>
